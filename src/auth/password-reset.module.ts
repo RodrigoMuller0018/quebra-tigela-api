@@ -8,7 +8,8 @@ import { User, UserSchema } from '../users/schemas/user.schema';
 import { Artist, ArtistSchema } from '../artists/schemas/artist.schema';
 import { PasswordResetService } from './password-reset.service';
 import { PasswordResetController } from './password-reset.controller';
-import { MailModule } from '../mail/mail.module';
+// TODO: Descomentar quando configurar email
+// import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { MailModule } from '../mail/mail.module';
       { name: User.name, schema: UserSchema },
       { name: Artist.name, schema: ArtistSchema },
     ]),
-    MailModule,
+    // TODO: Descomentar quando configurar email
+    // MailModule,
   ],
   controllers: [PasswordResetController],
   providers: [PasswordResetService],

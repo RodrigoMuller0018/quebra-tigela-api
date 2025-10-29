@@ -9,7 +9,8 @@ import { ServicesModule } from './services/services.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { RequestsModule } from './requests/requests.module';
 import { ReviewsModule } from './reviews/reviews.module';
-import { MailModule } from './mail/mail.module';
+// TODO: Descomentar quando configurar email
+// import { MailModule } from './mail/mail.module';
 import { PasswordResetModule } from './auth/password-reset.module';
 import { FaceComparisonModule } from './face-comparison/face-comparison.module';
 
@@ -28,7 +29,8 @@ import { FaceComparisonModule } from './face-comparison/face-comparison.module';
     ScheduleModule,
     RequestsModule,
     ReviewsModule,
-    MailModule,
+    // TODO: Descomentar quando configurar email
+    // MailModule,
     PasswordResetModule,
     FaceComparisonModule,
   ],

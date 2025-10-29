@@ -11,7 +11,8 @@ import {
 } from './schemas/password-reset.schema';
 import { User, UserDocument } from '../users/schemas/user.schema';
 import { Artist, ArtistDocument } from '../artists/schemas/artist.schema';
-import { PasswordResetMailService } from '../mail/password-reset.mail.service';
+// TODO: Descomentar quando configurar email
+// import { PasswordResetMailService } from '../mail/password-reset.mail.service';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -23,7 +24,8 @@ export class PasswordResetService {
     private userModel: Model<UserDocument>,
     @InjectModel(Artist.name)
     private artistModel: Model<ArtistDocument>,
-    private mailService: PasswordResetMailService,
+    // TODO: Descomentar quando configurar email
+    // private mailService: PasswordResetMailService,
   ) {}
 
   async requestReset(email: string) {
@@ -41,7 +43,19 @@ export class PasswordResetService {
     const expiresAt = new Date(Date.now() + 6 * 60 * 1000); 
 
     await this.resetModel.create({ email, code, expiresAt, used: false });
-    await this.mailService.sendResetCode(email, code);
+
+    // TODO: Descomentar quando configurar email
+    // await this.mailService.sendResetCode(email, code);
+
+    // TEMPORÁRIO: Log do código no console para testes
+    console.log('='.repeat(50));
+    console.log('🔐 CÓDIGO DE RESET DE SENHA (TESTE)');
+    console.log('='.repeat(50));
+    console.log(`Email: ${email}`);
+    console.log(`Código: ${code}`);
+    console.log(`Expira em: ${expiresAt.toLocaleString('pt-BR')}`);
+    console.log('='.repeat(50));
+
     return { message: 'Código enviado para o e-mail' };
   }
 
