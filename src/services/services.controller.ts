@@ -8,6 +8,10 @@ export class ServicesController {
 
   @Post()
   create(@Body() dto: CreateServiceOfferingDto) {
+    // Garantir que active seja true se não for enviado
+    if (dto.active === undefined) {
+      dto.active = true;
+    }
     return this.service.create(dto);
   }
 
